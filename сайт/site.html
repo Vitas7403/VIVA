@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva - Рюкзаки и Сумки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Изменено на contain для лучшего отображения */
+            border-radius: 5px;
+        }
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-controls button {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        .slider-controls button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .product h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .price {
+            color: #e60000;
+            font-weight: bold;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2em;
+        }
+        .contact a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 20px;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .product h3 {
+                font-size: 1em;
+            }
+            .slider-controls button {
+                padding: 3px 8px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Viva - Рюкзаки и Сумки</h1>
+    </header>
+    <div class="container">
+        <h2>Наши товары</h2>
+        <div class="product-grid">
+            <div class="product">
+                <div class="slider" id="slider-1">
+                    <div class="slides">
+                        <div class="slide"><img src="../сайт/src/Сумка адидас черная.jpg" alt="Спортивная сумка Adidas"></div>
+                        <div class="slide"><img src="../сайт/src/сумка адидас 2 черная.jpg" alt="Спортивная сумка Adidas вид 2"></div>
+                        <div class="slide"><img src="../сайт/src/сумка адидас 3 черная.jpg" alt="Спортивная сумка Adidas вид 3"></div>
+                        <div class="slide"><img src="../сайт/src/сумка адидас черная 4.jpg" alt="Спортивная сумка Adidas вид 3"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button onclick="moveSlide('slider-1', -1)">❮</button>
+                        <button onclick="moveSlide('slider-1', 1)">❯</button>
+                    </div>
+                </div>
+                <h3>Спортивная сумка Adidas</h3>
+                <p>Универсальный дизайн, отделения</p>
+                <p class="price">1 229 ₽</p>
+                <p class="original-price">2 229 ₽</p>
+                <p>(Скидка 45%)</p>
+            </div>
+            <div class="product">
+                <div class="slider" id="slider-2">
+                    <div class="slides">
+                        <!-- Замените src на путь к вашему изображению -->
+                        <div class="slide"><img src="../сайт/src/1Рюкзак уневерсальный.jpg" alt="Универсальный рюкзак с USB перед"></div>
+                        <div class="slide"><img src="../сайт/src/2рюкзак черный.jpg" alt="Универсальный рюкзак с USB зад"></div>
+                        <div class="slide"><img src="../сайт/src/3 рюкзак черный.jpg" alt="Универсальный рюкзак с USB бок"></div>
+                        <div class="slide"><img src="../сайт/src/4 рюкзак черный.jpg" alt="Универсальный рюкзак с USB бок"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button onclick="moveSlide('slider-2', -1)">❮</button>
+                        <button onclick="moveSlide('slider-2', 1)">❯</button>
+                    </div>
+                </div>
+                <h3>Универсальный рюкзак с USB</h3>
+                <p>USB-порт, водонепроницаемый, отсек для ноутбука 15", унисекс</p>
+                <p class="price">1 200 ₽</p>
+                <p class="original-price">2 000 ₽</p>
+                <p>(Скидка 40%)</p>
+            </div>
+            <div class="product">
+                <div class="slider" id="slider-3">
+                    <div class="slides">
+                        <div class="slide"><img src="../сайт/src/Адидас серая.jpg" alt="Спортивная сумка Adidas"></div>
+                        <div class="slide"><img src="../сайт/src/адидас серая 2.jpg" alt="Спортивная сумка Adidas вид 2"></div>
+                        <div class="slide"><img src="../сайт/src/адидас серая 3.jpg" alt="Спортивная сумка Adidas вид 3"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button onclick="moveSlide('slider-3', -1)">❮</button>
+                        <button onclick="moveSlide('slider-3', 1)">❯</button>
+                    </div>
+                </div>
+                <h3>Спортивная сумка Adidas</h3>
+                <p>Универсальный дизайн, отделения</p>
+                <p class="price">1 080 ₽</p>
+                <p class="original-price">2 000 ₽</p>
+                <p>(Скидка 46%)</p>
+            </div>
+            <div class="product">
+                <div class="slider" id="slider-4">
+                    <div class="slides">
+                        <div class="slide"><img src="../сайт/src/Синий рюкзак.jpg" alt="Спортивная сумка Adidas"></div>
+                        <div class="slide"><img src="../сайт/src/синий рюкзак 2.jpg" alt="Спортивная сумка Adidas"></div>
+                        <div class="slide"><img src="../сайт/src/синий рюкзак 3.jpg" alt="Спортивная сумка Adidas"></div>
+                        <div class="slide"><img src="../сайт/src/синий рюкзак 4.jpg" alt="Спортивная сумка Adidas"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button onclick="moveSlide('slider-4', -1)">❮</button>
+                        <button onclick="moveSlide('slider-4', 1)">❯</button>
+                    </div>
+                </div>
+                <h3>Универсальный рюкзак с USB</h3>
+                <p>USB-порт, водонепроницаемый, отсек для ноутбука 15", унисекс</h3>
+                <p class="price">1 280 ₽</p>
+                <p class="original-price">2 580</p>
+                <p>(Скидка 27%)</p>
+            </div>
+            <div class="product">
+                <div class="slider" id="slider-5">
+                    <div class="slides">
+                        <div class="slide"><img src="../сайт/src/Сумка синяя.jpg" alt="Школьный рюкзак"></div>
+                        <div class="slide"><img src="../сайт/src/сумка синя 2.jpg" alt="Школьный рюкзак вид 2"></div>
+                        <div class="slide"><img src="../сайт/src/сумка синяя 3.jpg" alt="Школьный рюкзак вид 3"></div>
+                        <div class="slide"><img src="../сайт/src/сумка синяя 4.jpg" alt="Школьный рюкзак вид 3"></div>
+                    </div>
+                    <div class="slider-controls">
+                        <button onclick="moveSlide('slider-5', -1)">❮</button>
+                        <button onclick="moveSlide('slider-5', 1)">❯</button>
+                    </div>
+                </div>
+                <h3>Спортивная сумка Adidas</h3>
+                <p>Универсальный дизайн, отделения</p>
+                <p class="price">1 199 ₽</p>
+                <p class="original-price">2 000 ₽</p>
+                <p>(Скидка 40%)</p>
+            </div>
+        </div>
+        <div class="contact">
+            <p>Для заказа звоните: <a href="tel:+79823403795">+7 (982) 340-37-95</a></p>
+            <p>Или посетите наш магазин на <a href="https://www.ozon.ru/seller/viva-2559250/?miniapp=seller_2559250">Ozon</a></p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Viva - Рюкзаки и Сумки</p>
+    </footer>
+    <script>
+        function moveSlide(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            let currentSlide = parseInt(slider.dataset.currentSlide || '0');
+
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slider.dataset.currentSlide = currentSlide;
+        }
+    </script>
+</body>
+</html>
